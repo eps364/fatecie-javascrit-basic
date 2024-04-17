@@ -1,0 +1,43 @@
+import React, { useState } from 'react';
+
+function App() {
+const [opcao, setOpcao] = useState("0");
+const [mensagem, setMensagem] = useState("");
+
+const handleOpcaoChange = (event) => {
+setOpcao(event.target.value);
+}
+
+const funcao = () => {
+if (opcao === "1") {
+setMensagem("Escolhida a Inserção de Dados.");
+} else if (opcao === "2") {
+setMensagem("Escolhida a Consulta de Dados.");
+} else if (opcao === "3") {
+setMensagem("Escolhida a Edição de Dados.");
+} else if (opcao === "4") {
+setMensagem("Escolhida a Exclusão de Dados.");
+} else {
+setMensagem("Opção Inválida.");
+}
+}
+
+return (
+<div>
+    <h2>JavaScript - Usando Switch case</h2>
+    <hr />
+    <p><b>** MENU DE OPÇÕES **</b></p>
+    <p>1. Inserir Dados</p>
+    <p>2. Consultar Dados</p>
+    <p>3. Editar Dados</p>
+    <p>4. Excluir Dados</p>
+    <p><b>Informe uma Opção:</b></p>
+    <input id="opcao" value={opcao} onChange={handleOpcaoChange} />
+    <br />
+    <button onClick={funcao}>Opção</button>
+    <p id="ex21">{mensagem}</p>
+</div>
+);
+}
+
+export default App;
